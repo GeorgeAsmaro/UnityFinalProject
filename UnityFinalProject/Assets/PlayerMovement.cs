@@ -5,63 +5,125 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
-
+    public float standingHeight;
+    public float crouchingHeight;
+    public float groundDrag;
+    public LayerMask whatIsGrounded;
     public Transform Orientation;
 
-    public float height;
-    public float groundDrag;
+    private bool grounded;
+    private float currentHeight;
+    private bool isCrouching = false;
+    private CapsuleCollider playerCollider;
 
-    public LayerMask whatIsGrounded;
-    bool grounded;
+    private float hInput;
+    private float vInput;
+    private Vector3 direction;
+    private Rigidbody rb;
 
-    float hInput;
-    float vInput;
-
-    Vector3 direction;
-
-    Rigidbody rb;
-
-    void Start() {
+    private void Start()
+    {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        currentHeight = standingHeight;
+        playerCollider = GetComponent<CapsuleCollider>();
+        DetectPlayerHeight();
     }
 
-    void Update() {
-        //Debug.Log(rb.velocity);
-        grounded = Physics.Raycast(transform.position, Vector3.down, height * 0.5f + 0.2f, whatIsGrounded);
+    private void Update()
+    {
+        grounded = Physics.Raycast(transform.position, Vector3.down, currentHeight * 0.5f + 0.2f, whatIsGrounded);
 
         PlayerInput();
         speedControl();
 
-        if(grounded) {
-            rb.drag = groundDrag; 
+        if (grounded)
+        {
+            rb.drag = groundDrag;
         }
-        else {
+        else
+        {
             rb.drag = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            ToggleCrouch();
         }
     }
 
-    void FixedUpdate() {
+    private void FixedUpdate()
+    {
         Move();
     }
 
-    void PlayerInput() {
+    private void PlayerInput()
+    {
         hInput = Input.GetAxisRaw("Horizontal");
         vInput = Input.GetAxisRaw("Vertical");
     }
 
-    void Move() {
+    private void Move()
+    {
         direction = Orientation.forward * vInput + Orientation.right * hInput;
         rb.AddForce(direction.normalized * speed * 10f, ForceMode.Force);
     }
 
-    void speedControl() {
+    private void speedControl()
+    {
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
-        if(flatVel.magnitude > speed) {
+        if (flatVel.magnitude > speed)
+        {
             Vector3 limited = flatVel.normalized * speed;
-            rb.velocity = new Vector3(limited.x, rb.velocity.y,limited.z);
+            rb.velocity = new Vector3(limited.x, rb.velocity.y, limited.z);
         }
+    }
 
+    private void Jump()
+    {
+        if (grounded)
+        {
+            rb.AddForce(Vector3.up * 10f, ForceMode.Impulse);
+        }
+    }
+
+    private void ToggleCrouch()
+    {
+        if (isCrouching)
+        {
+            // uncrouch
+            currentHeight = standingHeight;
+            transform.position += Vector3.up * (standingHeight - crouchingHeight);
+            playerCollider.height = standingHeight;
+            isCrouching = false;
+        }
+        else
+        {
+            // crouch
+            currentHeight = crouchingHeight;
+            transform.position += Vector3.down * (standingHeight - crouchingHeight);
+            playerCollider.height = crouchingHeight;
+            isCrouching = true;
+        }
+    }
+
+    private void DetectPlayerHeight()
+    {
+        // Detect the player's collider height
+        playerCollider = GetComponent<CapsuleCollider>();
+        float playerHeadHeight = playerCollider.height - playerCollider.center.y;
+
+        // Set the standing and crouching heights
+        standingHeight = playerHeadHeight + 0.2f;
+        crouchingHeight = playerHeadHeight * 0.5f + 0.2f;
+
+        // Set the initial height to standing height
+        currentHeight = standingHeight;
     }
 }

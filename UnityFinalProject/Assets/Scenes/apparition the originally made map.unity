@@ -10342,7 +10342,7 @@ MeshCollider:
   m_GameObject: {fileID: 704873046}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -11300,12 +11300,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  Orientation: {fileID: 1556037822}
-  height: 0
+  standingHeight: 1
+  crouchingHeight: 0.5
   groundDrag: 5
   whatIsGrounded:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
+  Orientation: {fileID: 1556037822}
 --- !u!1 &823228530
 GameObject:
   m_ObjectHideFlags: 0
@@ -20159,13 +20160,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7063989402060005443, guid: d5f7aead817c1154aaf54678634f86be, type: 3}
-      propertyPath: m_Height
+    - target: {fileID: 7063989402060005441, guid: d5f7aead817c1154aaf54678634f86be, type: 3}
+      propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7063989402060005443, guid: d5f7aead817c1154aaf54678634f86be, type: 3}
+      propertyPath: m_Height
+      value: 1.0045552
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063989402060005443, guid: d5f7aead817c1154aaf54678634f86be, type: 3}
       propertyPath: m_Radius
-      value: 0
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063989402060005443, guid: d5f7aead817c1154aaf54678634f86be, type: 3}
+      propertyPath: m_Center.y
+      value: 0.4977224
       objectReference: {fileID: 0}
     - target: {fileID: 7063989402060005468, guid: d5f7aead817c1154aaf54678634f86be, type: 3}
       propertyPath: m_Name
@@ -20193,7 +20202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7063989402060005470, guid: d5f7aead817c1154aaf54678634f86be, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.32421875
+      value: -0.5673828
       objectReference: {fileID: 0}
     - target: {fileID: 7063989402060005470, guid: d5f7aead817c1154aaf54678634f86be, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20233,6 +20242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7063989402060005440, guid: d5f7aead817c1154aaf54678634f86be, type: 3}
+    - {fileID: 7063989402182969142, guid: d5f7aead817c1154aaf54678634f86be, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d5f7aead817c1154aaf54678634f86be, type: 3}
 --- !u!1 &1416435705
 GameObject:

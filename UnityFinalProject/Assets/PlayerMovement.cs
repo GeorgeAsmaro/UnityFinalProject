@@ -89,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (grounded)
         {
-            rb.AddForce(Vector3.up * 10f, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * 3f, ForceMode.Impulse);
         }
     }
 

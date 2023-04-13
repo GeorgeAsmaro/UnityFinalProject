@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
 
-public class NewBehaviourScript : MonoBehaviourPunCallbacks
+public class ConnectToServer : MonoBehaviourPunCallbacks
 {
     void Start()
     {

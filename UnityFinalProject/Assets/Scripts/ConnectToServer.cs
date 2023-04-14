@@ -1,23 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
 
 public class ConnectToServer : MonoBehaviourPunCallbacks
 {
-    void Start()
+    public InputField usernameInput;
+    public Text buttonText;
+
+
+    public void OnClickConnect()
     {
-        PhotonNetwork.ConnectUsingSettings();
+        if(usernameInput.text.Length >= 3)
+        {
+            PhotonNetwork.NickName = usernameInput.text;
+            buttonText.text = "Connecting...";
+            PhotonNetwork.ConnectUsingSettings();
+        }
+
     }
 
     public override void OnConnectedToMaster()
     {
-        PhotonNetwork.JoinLobby();
+        Debug.Log("got here");
+        SceneManager.LoadScene("Lobby");
     }
 
-    public override void OnJoinedLobby()
-    {
-        //set lobby scene here
-    }
 }
+ 

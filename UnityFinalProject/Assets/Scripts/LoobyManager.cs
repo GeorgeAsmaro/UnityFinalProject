@@ -8,9 +8,8 @@ using UnityEngine.UI;
 public class LoobyManager : MonoBehaviourPunCallbacks
 {
     public InputField roomInput;
-    public GameObject lobbyPanel;
-    public GameObject roomPanel;
-    public Text roomName;
+    public InputField joinInput;
+    public GameObject PlayerPrefab;
 
     void Start()
     {
@@ -22,12 +21,15 @@ public class LoobyManager : MonoBehaviourPunCallbacks
         PhotonNetwork.CreateRoom(roomInput.text, new RoomOptions() { MaxPlayers = 10 });
     }
 
+    public void OnClickJoin()
+    {
+        PhotonNetwork.JoinRoom(joinInput.text);
+    }
+
     public override void OnJoinedRoom()
     {
-        Debug.Log("f");
-        lobbyPanel.SetActive(false);
-        roomPanel.SetActive(true);
-        roomName.text = "Room Name: " + PhotonNetwork.CurrentRoom.Name;
+        PhotonNetwork.LoadLevel("Game");
+        //PhotonNetwork.Instantiate(PlayerPrefab.name);
     }
 
 }

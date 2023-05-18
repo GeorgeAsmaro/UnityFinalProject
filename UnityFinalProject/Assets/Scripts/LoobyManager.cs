@@ -29,7 +29,7 @@ public class LoobyManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         PhotonNetwork.LoadLevel("Game");
-        //PhotonNetwork.Instantiate(PlayerPrefab.name);
+        PhotonNetwork.Instantiate(PlayerPrefab.name, new Vector3(0,0,0), new Quaternion(0,0,0,0));
     }
 
 }

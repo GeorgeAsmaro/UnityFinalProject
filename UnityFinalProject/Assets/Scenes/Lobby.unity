@@ -1365,9 +1365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomInput: {fileID: 1394990261}
   joinInput: {fileID: 1173854826}
-  lobbyPanel: {fileID: 1370648520}
-  roomPanel: {fileID: 0}
-  roomName: {fileID: 0}
+  PlayerPrefab: {fileID: 100030, guid: 845ab9e87f92c46958d6d8de82878033, type: 3}
 --- !u!4 &1770868868
 Transform:
   m_ObjectHideFlags: 0

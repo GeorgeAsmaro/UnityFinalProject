@@ -1,12 +1,8 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:UnityFinalProject/Assets/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/SlotCar-Scene/LightingData.asset.meta
-guid: add81c566bd604871917467037fc759e
-========
 guid: a5dcc090b844c394a9dcdc7094588ea4
->>>>>>>> 7e1408cfa5611238ddc370d603d9efa5d96a7bf7:UnityFinalProject/Assets/Materials/Material.017.mat.meta
 NativeFormatImporter:
   externalObjects: {}
-  mainObjectFileID: 25800000
+  mainObjectFileID: 2100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -1,9 +1,17 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:UnityFinalProject/Assets/Photon/PhotonUnityNetworking/Icons/PunIcon-128.png.meta
+guid: 75c17cd37a8e846d2b1e1816576c1601
+========
 guid: b1cc814f9c2a3b64ca370108d12958a9
+>>>>>>>> 7e1408cfa5611238ddc370d603d9efa5d96a7bf7:UnityFinalProject/Assets/Materials/Cardboard box texture.png.meta
 TextureImporter:
-  internalIDToNameTable: []
+  fileIDToRecycleName: {}
   externalObjects: {}
+<<<<<<<< HEAD:UnityFinalProject/Assets/Photon/PhotonUnityNetworking/Icons/PunIcon-128.png.meta
+  serializedVersion: 9
+========
   serializedVersion: 12
+>>>>>>>> 7e1408cfa5611238ddc370d603d9efa5d96a7bf7:UnityFinalProject/Assets/Materials/Cardboard box texture.png.meta
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
@@ -29,17 +37,26 @@ TextureImporter:
   generateCubemap: 6
   cubemapConvolution: 0
   seamlessCubemap: 0
-  textureFormat: 1
-  maxTextureSize: 2048
+  textureFormat: -1
+  maxTextureSize: 1024
   textureSettings:
     serializedVersion: 2
     filterMode: 1
+<<<<<<<< HEAD:UnityFinalProject/Assets/Photon/PhotonUnityNetworking/Icons/PunIcon-128.png.meta
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+========
     aniso: 1
     mipBias: 0
     wrapU: 0
     wrapV: 0
     wrapW: 0
   nPOTScale: 1
+>>>>>>>> 7e1408cfa5611238ddc370d603d9efa5d96a7bf7:UnityFinalProject/Assets/Materials/Cardboard box texture.png.meta
   lightmap: 0
   compressionQuality: 50
   spriteMode: 0
@@ -61,13 +78,16 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+<<<<<<<< HEAD:UnityFinalProject/Assets/Photon/PhotonUnityNetworking/Icons/PunIcon-128.png.meta
+========
   ignorePngGamma: 0
   applyGammaDecoding: 0
   cookieLightType: 0
+>>>>>>>> 7e1408cfa5611238ddc370d603d9efa5d96a7bf7:UnityFinalProject/Assets/Materials/Cardboard box texture.png.meta
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -76,6 +96,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+<<<<<<<< HEAD:UnityFinalProject/Assets/Photon/PhotonUnityNetworking/Icons/PunIcon-128.png.meta
+========
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
@@ -101,20 +123,28 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+>>>>>>>> 7e1408cfa5611238ddc370d603d9efa5d96a7bf7:UnityFinalProject/Assets/Materials/Cardboard box texture.png.meta
   spriteSheet:
     serializedVersion: 2
     sprites: []
     outline: []
     physicsShape: []
     bones: []
+<<<<<<<< HEAD:UnityFinalProject/Assets/Photon/PhotonUnityNetworking/Icons/PunIcon-128.png.meta
+    spriteID: 9643d165d2cccea49b385ca172ed0b1f
+========
     spriteID: 
     internalID: 0
+>>>>>>>> 7e1408cfa5611238ddc370d603d9efa5d96a7bf7:UnityFinalProject/Assets/Materials/Cardboard box texture.png.meta
     vertices: []
     indices: 
     edges: []
     weights: []
+<<<<<<<< HEAD:UnityFinalProject/Assets/Photon/PhotonUnityNetworking/Icons/PunIcon-128.png.meta
+========
     secondaryTextures: []
     nameFileIdTable: {}
+>>>>>>>> 7e1408cfa5611238ddc370d603d9efa5d96a7bf7:UnityFinalProject/Assets/Materials/Cardboard box texture.png.meta
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

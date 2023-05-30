@@ -87,10 +87,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (grounded)
-        {
             rb.AddForce(Vector3.up * 3f, ForceMode.Impulse);
-        }
     }
 
     private void ToggleCrouch()

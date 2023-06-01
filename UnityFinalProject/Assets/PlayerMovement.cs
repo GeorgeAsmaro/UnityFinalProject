@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
+    public float Speed => speed;
     public float standingHeight;
     public float crouchingHeight;
     public float groundDrag;
@@ -122,5 +123,15 @@ public class PlayerMovement : MonoBehaviour
 
         // Set the initial height to standing height
         currentHeight = standingHeight;
+    }
+
+    public float getSpeed()
+    {
+        return speed;
+    }
+
+    public void setSpeed(float speed)
+    {
+        this.speed = speed;
     }
 }

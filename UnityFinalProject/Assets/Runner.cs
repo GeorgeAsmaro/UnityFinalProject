@@ -82,7 +82,6 @@ public class Runner : MonoBehaviour
             roundTime.color = startColor;
         }
 
-        // Calculate the color based on timer value
         float t = Mathf.Clamp01(1 - (timer / 15f));
         Color lerpedColor = Color.Lerp(startColor, endColor, t);
 
@@ -95,7 +94,6 @@ public class Runner : MonoBehaviour
             lerpedColor = Color.Lerp(middleColor, endColor, (t - 0.5f) * 2);
         }
 
-        // Apply the color to the text
         freezeTime.color = lerpedColor;
     }
 }

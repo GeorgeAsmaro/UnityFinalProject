@@ -16,6 +16,8 @@ public class Runner : MonoBehaviour
     public Color startColor = Color.red;
     public Color middleColor = Color.yellow;
     public Color endColor = Color.green;
+    bool planted = false;
+    bool plantTimerSet = false;
 
     void Start()
     {
@@ -25,6 +27,7 @@ public class Runner : MonoBehaviour
 
     void Update()
     {
+        //Debug.Log(planted);
         if (timer > 0)
         {
             roundTime.text = "";
@@ -56,28 +59,61 @@ public class Runner : MonoBehaviour
 
             roundTimer -= Time.deltaTime;
 
-            if(roundTimer <= 0)
-            {
-                roundTimer = 0;
-            }
 
-            if((int)roundTimer % 60 > 9)
+            if (!planted)
             {
-                roundTime.text = ((int)roundTimer / 60) + ":" + ((int)roundTimer % 60);
+                if (roundTimer <= 0)
+                {
+                    roundTimer = 0;
+                }
 
-            }
-            else
-            {
-                roundTime.text = ((int)roundTimer / 60) + ":0" + ((int)roundTimer % 60);
-            }
+                if ((int)roundTimer % 60 > 9)
+                {
+                    roundTime.text = ((int)roundTimer / 60) + ":" + ((int)roundTimer % 60);
 
-            if (goTimer <= 0)
+                }
+                else
+                {
+                    roundTime.text = ((int)roundTimer / 60) + ":0" + ((int)roundTimer % 60);
+                }
+
+                if (goTimer <= 0)
+                {
+                    freezeTime.enabled = false;
+                }
+            }
+            
+            if(planted)
             {
-                freezeTime.enabled = false;
+                if(!plantTimerSet)
+                {
+                    roundTimer = 40f;
+                    plantTimerSet = true;
+                }
+
+                if (roundTimer <= 0)
+                {
+                    roundTimer = 0;
+                }
+
+                if ((int)roundTimer % 60 > 9)
+                {
+                    roundTime.text = ((int)roundTimer / 60) + ":" + ((int)roundTimer % 60);
+
+                }
+                else
+                {
+                    roundTime.text = ((int)roundTimer / 60) + ":0" + ((int)roundTimer % 60);
+                }
             }
         }
 
-        if(roundTimer <= 11)
+        if(roundTimer <= 11 && !planted)
+        {
+            roundTime.color = startColor;
+        }
+
+        if(planted)
         {
             roundTime.color = startColor;
         }
@@ -95,5 +131,10 @@ public class Runner : MonoBehaviour
         }
 
         freezeTime.color = lerpedColor;
+    }
+
+    public void setPlanted(bool isPlanted)
+    {
+        this.planted = isPlanted;
     }
 }

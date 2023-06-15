@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     private float vInput;
     private Vector3 direction;
     private Rigidbody rb;
+    Animation animation;
+    public GameObject walkworkpls;
 
     private void Start()
     {
@@ -55,6 +57,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             ToggleCrouch();
+        }
+
+        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.S))
+        {
+            animation = walkworkpls.GetComponent<Animation>();
+            animation.Play("HumanoidRun");
         }
     }
 

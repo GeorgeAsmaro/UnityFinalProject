@@ -21,8 +21,10 @@ public class PlayerMovement : MonoBehaviour
     private float vInput;
     private Vector3 direction;
     private Rigidbody rb;
-    Animation animation;
     public GameObject walkworkpls;
+    public string controllerPath = "BasicMotions@Run";
+    private Animator animator;
+    public float mouseSensitivity = 100f;
 
     private void Start()
     {
@@ -31,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         currentHeight = standingHeight;
         playerCollider = GetComponent<CapsuleCollider>();
         DetectPlayerHeight();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -59,11 +62,21 @@ public class PlayerMovement : MonoBehaviour
             ToggleCrouch();
         }
 
-        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.S))
+        if (animator != null)
         {
-            animation = walkworkpls.GetComponent<Animation>();
-            animation.Play("HumanoidRun");
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.S))
+            {
+                animator.SetBool("IsRunning", true);
+            }
+            else
+            {
+                animator.SetBool("IsRunning", false);
+            }
         }
+
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        transform.Rotate(Vector3.up, mouseX);
+
     }
 
     private void FixedUpdate()

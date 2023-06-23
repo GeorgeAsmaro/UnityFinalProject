@@ -18,6 +18,14 @@ public class Runner : MonoBehaviour
     public Color endColor = Color.green;
     bool planted = false;
     bool plantTimerSet = false;
+    private TMP_Text bombText;
+    public GameObject bomb;
+    bool defused = false;
+    int tRoundsNum;
+    int ctRoundsNum;
+    public TMP_Text tRounds;
+    public TMP_Text ctRounds;
+    bool roundAdded = false;
 
     void Start()
     {
@@ -27,7 +35,23 @@ public class Runner : MonoBehaviour
 
     void Update()
     {
+        bomb = GameObject.Find("SM_Prop_C4_01 Variant 1(Clone)");
         //Debug.Log(planted);
+
+        if(bomb != null)
+        {
+            if(!defused)
+            {
+                bombText = bomb.GetComponentInChildren<TMP_Text>();
+                bombText.text = roundTimer.ToString();
+                //Debug.Log("Time change");
+            }
+            else if(defused)
+            {
+                bombText.text = "Defused";
+                bombText.color = Color.green;
+            }
+        }
         if (timer > 0)
         {
             roundTime.text = "";
@@ -84,7 +108,8 @@ public class Runner : MonoBehaviour
             }
             
             if(planted)
-            {
+            {                
+                
                 if(!plantTimerSet)
                 {
                     roundTimer = 40f;
@@ -131,10 +156,34 @@ public class Runner : MonoBehaviour
         }
 
         freezeTime.color = lerpedColor;
+
+        if(planted && roundTimer <=0 && !roundAdded)
+        {
+            tRoundsNum++;
+            tRounds.text = tRoundsNum.ToString();
+            roundAdded = true;
+        }
+        else if(defused && !roundAdded)
+        {
+            ctRoundsNum++;
+            ctRounds.text = ctRoundsNum.ToString();
+            roundAdded = true;
+        }
+        else if(roundTimer <=0 && !planted && !roundAdded)
+        {
+            ctRoundsNum++;
+            ctRounds.text = ctRoundsNum.ToString();
+            roundAdded = true;
+        }
     }
 
     public void setPlanted(bool isPlanted)
     {
         this.planted = isPlanted;
+    }
+
+    public void setDefused(bool defused)
+    {
+        this.defused = defused;
     }
 }
